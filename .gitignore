@@ -1,0 +1,9 @@
+saved_parameters/
+
+# Matlab autosave files
+*.asv
+*.h5
+*.Log
+*.xml
+# OS X stores
+*.DS_Store
