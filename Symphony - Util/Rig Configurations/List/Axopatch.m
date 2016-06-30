@@ -38,7 +38,7 @@ classdef Axopatch < PetriRigConfiguration
 %           obj.addDevice('Ch2AORB', 'DIGITAL_OUT.1', '');   % output only
 %           obj.addDevice('Ch3AORB', 'DIGITAL_OUT.1', '');   % output only
             
-            obj.addDevice('OscilloscopeTrigger', 'DIGITAL_OUT.1', '');
+            obj.addDevice('OscilloscopeTrigger', 'DIGITAL_OUT.0', '');
             
 			obj.addDevice('RigSwitches','', 'DIGITAL_IN.0');
             createDevices@PetriRigConfiguration(obj);
