@@ -225,7 +225,9 @@ classdef LEDFactorPulse < PetriProtocol
             epoch.addStimulus('OscilloscopeTrigger', 'OscilloscopeTrigger_Stimulus', stim, units);
             
             if obj.initialPulseAmplitude <= 0
-                epoch.addStimulus('ShutterTrigger', 'ShutterTrigger_Stimulus', stim, units);
+                [stim, units] = obj.generateTTLStimulus();
+                %epoch.addStimulus('ShutterTrigger', 'ShutterTrigger_Stimulus', stim, units);
+                epoch.addStimulus('RandomName', 'RandomName_Stimulus', stim, units);
             end
         end
         
