@@ -221,14 +221,13 @@ classdef LEDFactorPulse < PetriProtocol
             [ stim , units ] = obj.generateStimulus();
             epoch.addStimulus(obj.StimulusLED, [obj.StimulusLED '_Stimulus'], stim, units);
             
-            [stim, units] = obj.generateTTLStimulus();
-            epoch.addStimulus('OscilloscopeTrigger', 'OscilloscopeTrigger_Stimulus', stim, units);
-            
-            if obj.initialPulseAmplitude <= 0
+            if obj.initialPulseAmplitude > 0
+                [stim, units] = obj.generateTTLStimulus();
+                epoch.addStimulus('OscilloscopeTrigger', 'OscilloscopeTrigger_Stimulus', stim, units);
+            else
                 [stim, units] = obj.generateTTLStimulus();
                 % Calling digital channel twice causes an error...
                 epoch.addStimulus('ShutterTrigger', 'ShutterTrigger_Stimulus', stim, units);
-                %epoch.addStimulus('RandomName', 'RandomName_Stimulus', stim, units);
             end
         end
         
